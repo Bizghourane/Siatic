@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة الأستاذ التعليمية الرسمية</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; margin: 0; padding: 20px; color: #333; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .header { background: #1e3d59; color: white; padding: 20px; text-align: center; border-radius: 10px; margin-bottom: 20px; }
+        .card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .btn { display: inline-block; background: #ff6e40; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; margin: 10px 0; }
+        .btn:hover { background: #e65100; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 8px; margin: 15px 0; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        #login-page { max-width: 400px; margin: 100px auto; text-align: center; }
+        input[type="password"] { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+    </style>
+</head>
+<body>
+
+    <!-- صفحة تسجيل الدخول لحماية الموقع من التطفل -->
+    <div id="login-page" class="card">
+        <h2>تسجيل دخول الطلاب</h2>
+        <p>الرجاء إدخال كلمة المرور المعتمدة لدخول الدروس:</p>
+        <input type="password" id="student-pass" placeholder="كلمة المرور">
+        <button class="btn" onclick="checkPassword()">دخول</button>
+        <p id="error-msg" style="color: red; display: none;">كلمة المرور غير صحيحة!</p>
+    </div>
+
+    <!-- محتوى المنصة الرئيسي (يظهر بعد كتابة كلمة المرور الصحيحة) -->
+    <div id="main-content" class="container" style="display: none;">
+        <div class="header">
+            <h1>منصة الأستاذ الرسمية عن بُعد</h1>
+            <p>مرحباً بكم يا أبطال في فضاءكم التعليمي الآمن</p>
+        </div>
+
+        <!-- قسم الدروس -->
+        <div class="card">
+            <h2>📚 الدرس الأول: الشرح والنص الدراسي</h2>
+            <p>اكتب هنا يا أستاذ نص الدرس، الملاحظات، أو التوجيهات المهمة التي تريد من الطالب قراءتها قبل مشاهدة الفيديو.</p>
+            
+            <!-- فيديو يوتيوب (استبدل الرابط برابط فيديو درسك) -->
+            <div class="video-container">
+                <iframe src="https://youtube.com" allowfullscreen></iframe>
+            </div>
+
+            <!-- رابط ملف الـ PDF من جوجل درايف -->
+            <a href="رابط_ملف_الـPDF_هنا" class="btn" target="_blank">📥 تحميل ملخص الدرس (PDF)</a>
+        </div>
+
+        <!-- قسم الاختبارات والشهادات ونقاط الطلاب -->
+        <div class="card" style="border-right: 5px solid #ff6e40;">
+            <h2>📝 مركز الاختبارات وسحب الشهادات والنتائج</h2>
+            <p>اضغط على الزر أدناه للانتقال إلى الاختبار. بعد الإجابة وحصولك على درجة النجاح، ستصدر شهادتك وتصلك تلقائياً!</p>
+            
+            <!-- رابط اختبار جوجل فورم المربوط بـ Certify'em لتوليد الشهادات -->
+            <a href="رابط_نموذج_جوجل_فورم_الخاص_بك" class="btn" style="background: #1e3d59;">📝 دخول الاختبار ورصد النقاط الآن</a>
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var pass = document.getElementById("student-pass").value;
+            // يمكنك تغيير كلمة المرور '12345' إلى أي كلمة تريدها لطلابك
+            if(pass === "12345") {
+                document.getElementById("login-page").style.display = "none";
+                document.getElementById("main-content").style.display = "block";
+            } else {
+                document.getElementById("error-msg").style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
